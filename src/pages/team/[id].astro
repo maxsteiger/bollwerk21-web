@@ -1,0 +1,108 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import { teamMembers } from '../../data/teamMembers';
+
+// This generates all possible routes based on team member IDs
+export function getStaticPaths() {
+  return teamMembers.map(member => ({
+    params: { id: member.id },
+    props: { member },
+  }));
+}
+
+// Get the team member data from props (passed by getStaticPaths)
+const { member } = Astro.props;
+---
+
+<MainLayout title={`${member.name} - Logopädie 21`}>
+  <div style={`background-color: ${member.color};`} class="min-h-screen py-12">
+    <div class="container mx-auto px-4">
+      <div class="bg-white rounded-lg shadow-lg p-6 relative">
+        <!-- Back button -->
+        <a 
+          href="/team" 
+          class="absolute top-4 right-4 px-6 py-2 text-white font-bold uppercase"
+          style={`background-color: ${member.color};`}
+        >
+          Zurück
+        </a>
+        
+        <!-- Team member content -->
+        <div class="flex flex-col md:flex-row gap-8">
+          <!-- Left column (image and contact) -->
+          <div class="md:w-1/2">
+            <img 
+              src={member.imagePath} 
+              alt={member.name} 
+              class="w-full h-auto rounded-lg"
+            >
+            
+            <div class="mt-6">
+              <h3 class="text-xl font-bold mb-3">Kontakt:</h3>
+              <ul class="space-y-1">
+                {member.contacts.map(contact => (
+                  <li>{contact}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+          
+          <!-- Right column (details) -->
+          <div class="md:w-1/2">
+            <div class="mb-6">
+              {member.titles.map(title => (
+                <p class="font-semibold">{title}</p>
+              ))}
+              <hr class="my-4 border-gray-300" />
+              
+              <h3 class="text-xl font-bold mb-3">Berufserfahrung</h3>
+              <ul class="list-disc ml-6 space-y-2">
+                {member.workExperiences.map(exp => (
+                  <li>{exp}</li>
+                ))}
+              </ul>
+            </div>
+            
+            <div class="mb-6">
+              <h3 class="text-xl font-bold mb-3">Weiterbildungsschwerpunkte:</h3>
+              <ul class="list-disc ml-6 space-y-2">
+                {member.furtherEducations.map(edu => (
+                  <li>{edu}</li>
+                ))}
+              </ul>
+            </div>
+            
+            <div class="mb-6">
+              <h3 class="text-xl font-bold mb-3">Weitere berufsbezogene Tätigkeiten:</h3>
+              <ul class="list-disc ml-6 space-y-2">
+                {member.workRelatedTasks.map(task => (
+                  <li>{task}</li>
+                ))}
+              </ul>
+            </div>
+            
+            {member.publications.length > 0 && (
+              <div class="mb-6">
+                <h3 class="text-xl font-bold mb-3">Publikationen:</h3>
+                <ul class="space-y-3">
+                  {member.publications.map(pub => (
+                    <li>{pub}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            
+            <div class="mb-6">
+              <h3 class="text-xl font-bold mb-3">Mitgliedschaften:</h3>
+              <ul class="list-disc ml-6 space-y-2">
+                {member.memberships.map(membership => (
+                  <li>{membership}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</MainLayout>

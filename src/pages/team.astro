@@ -1,0 +1,41 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import TeamMember from '../components/TeamMember.astro';
+import { teamMembers } from '../data/teamMembers';
+---
+
+<MainLayout title="Team - Logopädie 21">
+  <div class="bg-secondary min-h-screen py-12">
+    <div class="container mx-auto px-4">
+      <div class="bg-white rounded-lg shadow-lg p-8 mb-8">
+        <div class="flex justify-between items-center mb-8">
+          <h1 class="text-2xl md:text-3xl font-bold">Unser Team</h1>
+          <img 
+            class="h-16" 
+            src="logopaedie21.svg" 
+            alt="Logopädie 21 Logo"
+          >
+        </div>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+          {teamMembers.map(member => (
+            <TeamMember 
+              id={member.id}
+              name={member.name}
+              thumbnailPath={member.thumbnailPath}
+              color={member.color}
+            />
+          ))}
+        </div>
+        
+        <div class="flex justify-center">
+          <img 
+            class="max-h-64" 
+            src="monsters_logo.svg" 
+            alt="Monster Logo"
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</MainLayout>

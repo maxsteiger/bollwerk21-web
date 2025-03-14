@@ -8,25 +8,37 @@ interface Props {
 
 const { 
   title, 
-  description = "Professionelle logopädische Therapie, die Ihnen oder Ihrem Kind helfen, Kommunikations- und Sprachprobleme zu überwinden" 
+  description = "Logopädie 21 - Logopädische Praxis für Kinder am Bollwerk 21 in Bern" 
 } = Astro.props;
+
+// Navigation links matching the original site structure
+const navLinks = [
+  { title: 'Home', path: '/' },
+  { title: 'Über uns', path: '/about' },
+  { title: 'Team', path: '/team' },
+  { title: 'Abklärung', path: '/evaluation' },
+  { title: 'Therapie', path: '/therapy' },
+  { title: 'Kontakt', path: '/contact' },
+];
 ---
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
   </head>
   <body class="min-h-screen bg-gray-50">
     <header class="bg-white shadow">
-      <div class="container mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center">
+      <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center">
         <div class="flex items-center mb-4 md:mb-0">
-          <img src="/logopaedie21.svg" alt="Logopädie 21" class="h-10 w-auto" />
+          <a href="/">
+            <img src="logopaedie21.svg" alt="Logopädie 21 Logo" class="h-12 w-auto" />
+          </a>
         </div>
         
         <!-- Mobile menu button -->
@@ -39,11 +51,16 @@ const {
         <!-- Navigation - responsive -->
         <nav id="main-nav" class="hidden md:block w-full md:w-auto">
           <ul class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8">
-            <li><a href="/" class="hover:text-primary">Home</a></li>
-            <li><a href="/services" class="hover:text-primary">Services</a></li>
-            <li><a href="/about" class="hover:text-primary">About Us</a></li>
-            <li><a href="/team" class="hover:text-primary">Our Team</a></li>
-            <li><a href="/contact" class="hover:text-primary">Contact</a></li>
+            {navLinks.map(link => (
+              <li>
+                <a 
+                  href={link.path} 
+                  class="hover:text-primary font-semibold"
+                >
+                  {link.title}
+                </a>
+              </li>
+            ))}
           </ul>
         </nav>
       </div>
@@ -57,20 +74,31 @@ const {
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
-            <h3 class="text-lg font-bold mb-4">Your Speech Therapy</h3>
-            <p class="text-gray-300">Professional speech therapy services for children and adults.</p>
+            <h3 class="text-lg font-bold mb-4">Logopädie 21</h3>
+            <p class="text-gray-300">Logopädische Praxis für Kinder am Bollwerk 21 in Bern</p>
           </div>
           <div>
-            <h3 class="text-lg font-bold mb-4">Contact Us</h3>
-            <p class="text-gray-300">123 Therapy Street<br>Your City, ST 12345<br>Phone: (123) 456-7890</p>
+            <h3 class="text-lg font-bold mb-4">Kontakt</h3>
+            <p class="text-gray-300">
+              Bollwerk 21<br>
+              3011 Bern<br>
+              Tel: <a href="tel:+41313717200" class="hover:text-primary">031 371 72 00</a><br>
+              <a href="mailto:info@logopaedie21.ch" class="hover:text-primary">info@logopaedie21.ch</a>
+            </p>
           </div>
           <div>
-            <h3 class="text-lg font-bold mb-4">Hours</h3>
-            <p class="text-gray-300">Monday - Friday: 8am - 6pm<br>Saturday: 9am - 1pm<br>Sunday: Closed</p>
+            <h3 class="text-lg font-bold mb-4">Öffnungszeiten</h3>
+            <p class="text-gray-300">
+              Montag - Freitag<br>
+              Nach Vereinbarung
+            </p>
           </div>
         </div>
         <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
-          <p>&copy; {new Date().getFullYear()} Your Speech Therapy. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} Logopädie 21. Alle Rechte vorbehalten.<br>
+            <small>Wir sind Mitglied von Logopädie Bern. Die Qualitätsstandards des Logopädieverbandes des Kantons Bern werden von den Logopädinnen von Logopädie 21 eingehalten und jährlich extern kontrolliert.</small>
+          </p>
         </div>
       </div>
     </footer>

@@ -3,50 +3,61 @@ import MainLayout from '../layouts/MainLayout.astro';
 import Hero from '../components/Hero.astro';
 ---
 
-<MainLayout title="Your Speech Therapy - Professional Speech Therapy Services">
+<MainLayout title="Logopädie 21 - Logopädische Praxis für Kinder in Bern">
   <Hero 
-    title="Helping You Find Your Voice" 
-    subtitle="Professional speech therapy services for children and adults"
+    title="BOLLWERK 21: SPEZIALIST/-INNEN FÜR KINDER UNTER EINEM DACH" 
+    subtitle="LOGOPÄDISCHE PRAXIS FÜR KINDER – BOLLWERK 21 – CH-3011 BERN"
+    image="logopaedie21.svg"
   />
   
   <!-- Services Overview Section -->
   <section class="py-16">
     <div class="container mx-auto px-4">
-      <h2 class="text-2xl md:text-3xl font-bold text-center mb-12">Our Services</h2>
+      <h2 class="text-2xl md:text-3xl font-bold text-center mb-12">Unsere Dienstleistungen</h2>
       
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <!-- Service Card 1 -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
+        <!-- Service Card 1: Abklärung -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
           <div class="bg-primary bg-opacity-10 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-primary">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
             </svg>
           </div>
-          <h3 class="text-xl font-bold mb-2">Children's Therapy</h3>
-          <p class="text-gray-600">Specialized speech and language therapy for children with developmental delays or disorders.</p>
+          <h3 class="text-xl font-bold mb-2">Abklärung</h3>
+          <p class="text-gray-600 mb-4">Umfassende Abklärung bei Sprach- und Kommunikationsauffälligkeiten bei Kindern.</p>
+          <a href="/evaluation" class="text-primary font-semibold hover:underline">Mehr erfahren →</a>
         </div>
         
-        <!-- Service Card 2 -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
+        <!-- Service Card 2: Therapie -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
           <div class="bg-primary bg-opacity-10 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-primary">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 18v-5.25m0 0a6.01 6.01 0 001.5-.189m-1.5.189a6.01 6.01 0 01-1.5-.189m3.75 7.478a12.06 12.06 0 01-4.5 0m3.75 2.383a14.406 14.406 0 01-3 0M14.25 18v-.192c0-.983.658-1.823 1.508-2.316a7.5 7.5 0 10-7.517 0c.85.493 1.509 1.333 1.509 2.316V18" />
             </svg>
           </div>
-          <h3 class="text-xl font-bold mb-2">Adult Speech Therapy</h3>
-          <p class="text-gray-600">Rehabilitation services for adults recovering from stroke, injury, or dealing with other speech challenges.</p>
+          <h3 class="text-xl font-bold mb-2">Therapie</h3>
+          <p class="text-gray-600 mb-4">Spielerische und individuell angepasste Sprachtherapie für Kinder und Jugendliche.</p>
+          <a href="/therapy" class="text-primary font-semibold hover:underline">Mehr erfahren →</a>
         </div>
         
-        <!-- Service Card 3 -->
-        <div class="bg-white p-6 rounded-lg shadow-md">
+        <!-- Service Card 3: Team -->
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow">
           <div class="bg-primary bg-opacity-10 p-3 rounded-full w-14 h-14 flex items-center justify-center mb-4">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6 text-primary">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25zM6.75 12h.008v.008H6.75V12zm0 3h.008v.008H6.75V15zm0 3h.008v.008H6.75V18z" />
+              <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
             </svg>
           </div>
-          <h3 class="text-xl font-bold mb-2">Assessments</h3>
-          <p class="text-gray-600">Comprehensive evaluations to determine speech and language abilities and create personalized treatment plans.</p>
+          <h3 class="text-xl font-bold mb-2">Unser Team</h3>
+          <p class="text-gray-600 mb-4">Fünf erfahrene Logopädinnen mit verschiedenen Spezialgebieten für die optimale Betreuung.</p>
+          <a href="/team" class="text-primary font-semibold hover:underline">Mehr erfahren →</a>
         </div>
+      </div>
+      
+      <!-- CTA Button -->
+      <div class="mt-12 text-center">
+        <a href="/about" class="bg-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-primary/90 transition-colors inline-block">
+          Mehr über uns erfahren
+        </a>
       </div>
     </div>
   </section>

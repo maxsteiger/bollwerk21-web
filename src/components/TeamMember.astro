@@ -1,0 +1,24 @@
+---
+// This is a simple component to display a team member card
+interface Props {
+  id: string;
+  name: string;
+  thumbnailPath: string;
+  color: string;
+}
+
+const { id, name, thumbnailPath, color } = Astro.props;
+---
+
+<a href={`/team/${id}`} class="block transition-transform hover:scale-105">
+  <div class="overflow-hidden rounded-lg shadow-md">
+    <img 
+      src={thumbnailPath} 
+      alt={name} 
+      class="w-full object-cover h-60"
+    />
+    <div class="p-2 text-center text-white font-semibold" style={`background-color: ${color};`}>
+      {name}
+    </div>
+  </div>
+</a>
