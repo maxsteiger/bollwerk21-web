@@ -1,0 +1,51 @@
+---
+interface Props {
+  src: string;
+  alt: string;
+  sizes?: string;
+  width?: number;
+  height?: number;
+  objectPosition?: string;
+  class?: string;
+}
+
+const { 
+  src, 
+  alt, 
+  sizes = "100vw", 
+  width, 
+  height,
+  objectPosition = "center", 
+  class: className = ""
+} = Astro.props;
+
+// Generate srcset
+const generateSrcSet = (src: string) => {
+  // Extract file name and extension
+  const lastDotIndex = src.lastIndexOf('.');
+  const baseName = src.substring(0, lastDotIndex);
+  const extension = src.substring(lastDotIndex);
+  
+  // Define widths for responsive images
+  const widths = [400, 800, 1200, 1600];
+  
+  return widths
+    .map(w => `${baseName}-${w}w${extension} ${w}w`)
+    .join(', ');
+};
+
+// For our demo, we'll simulate this, but in a real implementation
+// you would generate different sized images
+const srcset = src; // generateSrcSet(src);
+---
+
+<img 
+  src={src} 
+  alt={alt} 
+  loading="lazy"
+  width={width}
+  height={height}
+  sizes={sizes}
+  class={`object-cover ${className}`}
+  style={`object-position: ${objectPosition};`}
+/>

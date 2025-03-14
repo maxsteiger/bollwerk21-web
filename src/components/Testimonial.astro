@@ -1,0 +1,21 @@
+---
+interface Props {
+  quote: string;
+  author: string;
+  role?: string;
+}
+
+const { quote, author, role } = Astro.props;
+---
+
+<div class="bg-gray-light p-6 rounded-lg shadow-md relative">
+  <div class="text-primary text-5xl absolute -top-4 -left-2 opacity-20">"</div>
+  <p class="italic text-gray-700 relative z-10 mb-4">{quote}</p>
+  <div class="flex items-center">
+    <div class="w-2 h-10 bg-primary mr-3"></div>
+    <div>
+      <p class="font-semibold">{author}</p>
+      {role && <p class="text-sm text-gray-600">{role}</p>}
+    </div>
+  </div>
+</div>

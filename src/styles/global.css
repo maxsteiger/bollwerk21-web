@@ -1,8 +1,91 @@
+/* Font faces */
+@font-face {
+  font-family: "Assistant";
+  src: url("../assets/fonts/Assistant/Bold/Assistant-Bold.woff2") format("woff2"),
+       url("../assets/fonts/Assistant/Bold/Assistant-Bold.woff") format("woff");
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Assistant";
+  src: url("../assets/fonts/Assistant/Regular/Assistant-Regular.woff2") format("woff2"),
+       url("../assets/fonts/Assistant/Regular/Assistant-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Assistant";
+  src: url("../assets/fonts/Assistant/SemiBold/Assistant-SemiBold.woff2") format("woff2"),
+       url("../assets/fonts/Assistant/SemiBold/Assistant-SemiBold.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Assistant";
+  src: url("../assets/fonts/Assistant/ExtraBold/Assistant-ExtraBold.woff2") format("woff2"),
+       url("../assets/fonts/Assistant/ExtraBold/Assistant-ExtraBold.woff") format("woff");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Minion Pro";
+  src: url("../assets/fonts/MinionPro/Regular/MinionPro-Regular.woff2") format("woff2"),
+       url("../assets/fonts/MinionPro/Regular/MinionPro-Regular.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Set base font */
 @import "tailwindcss";
 
 /* Custom colors and styles */
 :root {
-  --color-primary: #4F46E5;
-  --color-primary-dark: #4338CA;
-  --color-secondary: #10B981;
+  --color-primary: #38b5e6;
+  --color-primary-dark: #2a9ac8;
+  --color-secondary: #44c39f;
+  --color-accent: #d72c1e;
+  --color-highlight: #ff6921;
+  --color-subtle: #939bd0;
+}
+
+/* Set font families */
+body {
+  font-family: 'Assistant', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Minion Pro', serif;
+  font-weight: normal;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Skip to content link for keyboard users */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  background: var(--color-primary);
+  color: white;
+  padding: 1rem;
+  transform: translateY(-100%);
+  transition: transform 0.3s;
+}
+
+.skip-to-content:focus {
+  left: 0;
+  transform: translateY(0);
 }

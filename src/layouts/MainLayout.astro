@@ -1,28 +1,28 @@
 ---
-import '../styles/global.css';
+import "../styles/global.css";
 
 interface Props {
   title: string;
   description?: string;
 }
 
-const { 
-  title, 
-  description = "Logopädie 21 - Logopädische Praxis für Kinder am Bollwerk 21 in Bern" 
+const {
+  title,
+  description = "Logopädie 21 - Logopädische Praxis für Kinder am Bollwerk 21 in Bern",
 } = Astro.props;
 
 // Navigation links matching the original site structure
 const navLinks = [
-  { title: 'Home', path: '/' },
-  { title: 'Über uns', path: '/about' },
-  { title: 'Team', path: '/team' },
-  { title: 'Abklärung', path: '/evaluation' },
-  { title: 'Therapie', path: '/therapy' },
-  { title: 'Kontakt', path: '/contact' },
+  { title: "Home", path: "/" },
+  { title: "Über uns", path: "/about" },
+  { title: "Team", path: "/team" },
+  { title: "Abklärung", path: "/evaluation" },
+  { title: "Therapie", path: "/therapy" },
+  { title: "Kontakt", path: "/contact" },
 ];
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
@@ -33,86 +33,177 @@ const navLinks = [
     <title>{title}</title>
   </head>
   <body class="min-h-screen bg-gray-50">
-    <header class="bg-white shadow">
-      <div class="container mx-auto px-4 py-3 flex flex-col md:flex-row justify-between items-center">
-        <div class="flex items-center mb-4 md:mb-0">
-          <a href="/">
-            <img src="logopaedie21.svg" alt="Logopädie 21 Logo" class="h-12 w-auto" />
+    <a href="#main-content" class="skip-to-content"> Skip to content </a>
+    <header class="bg-white shadow sticky top-0 z-50">
+      <div class="container mx-auto px-4 py-3">
+        <div class="flex justify-between items-center">
+          <a href="/" class="flex items-center">
+            <img
+              src="/logopaedie21.svg"
+              alt="Logopädie 21 Logo"
+              class="h-12 w-auto"
+            />
           </a>
+
+          <!-- Mobile menu button -->
+          <button
+            id="menu-toggle"
+            class="md:hidden focus:outline-none focus:ring-2 focus:ring-primary p-2 rounded-md"
+            aria-label="Toggle menu"
+            aria-expanded="false"
+            aria-controls="mobile-menu"
+          >
+            <span class="sr-only">Menu öffnen</span>
+            <svg
+              id="menu-closed-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-gray-800"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <svg
+              id="menu-open-icon"
+              xmlns="http://www.w3.org/2000/svg"
+              class="hidden h-6 w-6 text-gray-800"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+
+          <!-- Desktop Navigation -->
+          <nav class="hidden md:block">
+            <ul class="flex space-x-8">
+              {
+                navLinks.map((link) => (
+                  <li>
+                    <a
+                      href={link.path}
+                      class="hover:text-primary font-semibold transition-colors py-2 px-1 border-b-2 border-transparent hover:border-primary"
+                    >
+                      {link.title}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </nav>
         </div>
-        
-        <!-- Mobile menu button -->
-        <button id="menu-toggle" class="md:hidden bg-primary text-white p-2 rounded">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-          </svg>
-        </button>
-        
-        <!-- Navigation - responsive -->
-        <nav id="main-nav" class="hidden md:block w-full md:w-auto">
-          <ul class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8">
-            {navLinks.map(link => (
-              <li>
-                <a 
-                  href={link.path} 
-                  class="hover:text-primary font-semibold"
-                >
-                  {link.title}
-                </a>
-              </li>
-            ))}
-          </ul>
-        </nav>
+
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="md:hidden hidden mt-4 pb-4">
+          <nav>
+            <ul class="space-y-4">
+              {
+                navLinks.map((link) => (
+                  <li>
+                    <a
+                      href={link.path}
+                      class="block py-2 px-4 rounded-lg hover:bg-primary hover:text-white transition-colors"
+                    >
+                      {link.title}
+                    </a>
+                  </li>
+                ))
+              }
+            </ul>
+          </nav>
+        </div>
       </div>
     </header>
-    
-    <main>
+
+    <main id="main-content">
       <slot />
     </main>
-    
+
     <footer class="bg-gray-800 text-white py-8">
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           <div>
             <h3 class="text-lg font-bold mb-4">Logopädie 21</h3>
-            <p class="text-gray-300">Logopädische Praxis für Kinder am Bollwerk 21 in Bern</p>
+            <p class="text-gray-300">
+              Logopädische Praxis für Kinder am Bollwerk 21 in Bern
+            </p>
           </div>
           <div>
             <h3 class="text-lg font-bold mb-4">Kontakt</h3>
             <p class="text-gray-300">
-              Bollwerk 21<br>
-              3011 Bern<br>
-              Tel: <a href="tel:+41313717200" class="hover:text-primary">031 371 72 00</a><br>
-              <a href="mailto:info@logopaedie21.ch" class="hover:text-primary">info@logopaedie21.ch</a>
+              Bollwerk 21<br />
+              3011 Bern<br />
+              Tel: <a href="tel:+41313717200" class="hover:text-primary"
+                >031 371 72 00</a
+              ><br />
+              <a href="mailto:info@logopaedie21.ch" class="hover:text-primary"
+                >info@logopaedie21.ch</a
+              >
             </p>
           </div>
           <div>
             <h3 class="text-lg font-bold mb-4">Öffnungszeiten</h3>
             <p class="text-gray-300">
-              Montag - Freitag<br>
+              Montag - Freitag<br />
               Nach Vereinbarung
             </p>
           </div>
         </div>
-        <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+        <div
+          class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400"
+        >
           <p>
-            &copy; {new Date().getFullYear()} Logopädie 21. Alle Rechte vorbehalten.<br>
-            <small>Wir sind Mitglied von Logopädie Bern. Die Qualitätsstandards des Logopädieverbandes des Kantons Bern werden von den Logopädinnen von Logopädie 21 eingehalten und jährlich extern kontrolliert.</small>
+            &copy; {new Date().getFullYear()} Logopädie 21. Alle Rechte vorbehalten.<br
+            />
+            <small
+              >Wir sind Mitglied von Logopädie Bern. Die Qualitätsstandards des
+              Logopädieverbandes des Kantons Bern werden von den Logopädinnen
+              von Logopädie 21 eingehalten und jährlich extern kontrolliert.</small
+            >
           </p>
         </div>
       </div>
     </footer>
 
     <script>
-      // Simple mobile menu toggle
-      const menuToggle = document.getElementById('menu-toggle');
-      const mainNav = document.getElementById('main-nav');
-      
-      if (menuToggle && mainNav) {
-        menuToggle.addEventListener('click', () => {
-          mainNav.classList.toggle('hidden');
-        });
-      }
+      // Enhanced mobile menu toggle with animation
+      document.addEventListener("DOMContentLoaded", () => {
+        const menuToggle = document.getElementById("menu-toggle");
+        const mobileMenu = document.getElementById("mobile-menu");
+        const menuClosedIcon = document.getElementById("menu-closed-icon");
+        const menuOpenIcon = document.getElementById("menu-open-icon");
+
+        if (menuToggle && mobileMenu && menuClosedIcon && menuOpenIcon) {
+          menuToggle.addEventListener("click", () => {
+            // Toggle menu visibility
+            mobileMenu.classList.toggle("hidden");
+
+            // Toggle icon visibility
+            menuClosedIcon.classList.toggle("hidden");
+            menuOpenIcon.classList.toggle("hidden");
+
+            // Update aria-expanded attribute
+            const expanded =
+              menuToggle.getAttribute("aria-expanded") === "true" || false;
+            menuToggle.setAttribute("aria-expanded", (!expanded).toString());
+
+            // Add animation class
+            if (!mobileMenu.classList.contains("hidden")) {
+              mobileMenu.classList.add("animate-slide-up");
+            }
+          });
+        }
+      });
     </script>
   </body>
 </html>

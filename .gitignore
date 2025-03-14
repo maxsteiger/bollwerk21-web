@@ -24,4 +24,4 @@ pnpm-debug.log*
 .idea/
 
 # custom files
-project-tree-view.txt
+.project-tree-view.txt
