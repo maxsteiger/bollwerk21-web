@@ -1,0 +1,90 @@
+---
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { 
+  title, 
+  description = "Professionelle logopädische Therapie, die Ihnen oder Ihrem Kind helfen, Kommunikations- und Sprachprobleme zu überwinden" 
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <meta name="description" content={description} />
+    <title>{title}</title>
+  </head>
+  <body class="min-h-screen bg-gray-50">
+    <header class="bg-white shadow">
+      <div class="container mx-auto px-4 py-6 flex flex-col md:flex-row justify-between items-center">
+        <div class="flex items-center mb-4 md:mb-0">
+          <img src="/logopaedie21.svg" alt="Logopädie 21" class="h-10 w-auto" />
+        </div>
+        
+        <!-- Mobile menu button -->
+        <button id="menu-toggle" class="md:hidden bg-primary text-white p-2 rounded">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+          </svg>
+        </button>
+        
+        <!-- Navigation - responsive -->
+        <nav id="main-nav" class="hidden md:block w-full md:w-auto">
+          <ul class="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8">
+            <li><a href="/" class="hover:text-primary">Home</a></li>
+            <li><a href="/services" class="hover:text-primary">Services</a></li>
+            <li><a href="/about" class="hover:text-primary">About Us</a></li>
+            <li><a href="/team" class="hover:text-primary">Our Team</a></li>
+            <li><a href="/contact" class="hover:text-primary">Contact</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    
+    <main>
+      <slot />
+    </main>
+    
+    <footer class="bg-gray-800 text-white py-8">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-lg font-bold mb-4">Your Speech Therapy</h3>
+            <p class="text-gray-300">Professional speech therapy services for children and adults.</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Contact Us</h3>
+            <p class="text-gray-300">123 Therapy Street<br>Your City, ST 12345<br>Phone: (123) 456-7890</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold mb-4">Hours</h3>
+            <p class="text-gray-300">Monday - Friday: 8am - 6pm<br>Saturday: 9am - 1pm<br>Sunday: Closed</p>
+          </div>
+        </div>
+        <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+          <p>&copy; {new Date().getFullYear()} Your Speech Therapy. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      // Simple mobile menu toggle
+      const menuToggle = document.getElementById('menu-toggle');
+      const mainNav = document.getElementById('main-nav');
+      
+      if (menuToggle && mainNav) {
+        menuToggle.addEventListener('click', () => {
+          mainNav.classList.toggle('hidden');
+        });
+      }
+    </script>
+  </body>
+</html>
