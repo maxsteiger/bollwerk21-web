@@ -5,7 +5,7 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://maxsteiger.github.io',
-  //base: 'bollwerk21-web',
+  base: 'bollwerk21-web',
   vite: {
     plugins: [tailwindcss()]
   }

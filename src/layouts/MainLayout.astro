@@ -11,13 +11,14 @@ const {
   description = "Logopädie 21 - Logopädische Praxis für Kinder am Bollwerk 21 in Bern",
 } = Astro.props;
 
+const basePath = import.meta.env.BASE_URL || '';
 const navLinks = [
-  { title: "Home", path: "/" },
-  { title: "Über uns", path: "/about" },
-  { title: "Team", path: "/team" },
-  { title: "Abklärung", path: "/evaluation" },
-  { title: "Therapie", path: "/therapy" },
-  { title: "Kontakt", path: "/contact" },
+  { title: "Home", path: basePath+"/" },
+  { title: "Über uns", path: basePath+"/about" },
+  { title: "Team", path: basePath+"/team" },
+  { title: "Abklärung", path: basePath+"/evaluation" },
+  { title: "Therapie", path: basePath+"/therapy" },
+  { title: "Kontakt", path: basePath+"/contact" },
 ];
 ---
 
@@ -26,7 +27,7 @@ const navLinks = [
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="favicon.ico" />
+    <link rel="icon" href={basePath+"/favicon.ico"} />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
     <title>{title}</title>
@@ -36,9 +37,9 @@ const navLinks = [
     <header class="bg-white shadow sticky top-0 z-50">
       <div class="container mx-auto px-4 py-3">
         <div class="flex justify-between items-center">
-          <a href="/" class="flex items-center">
+          <a href={basePath+"/"} class="flex items-center">
             <img
-              src="/logopaedie21.svg"
+              src={basePath+"/logopaedie21.svg"}
               alt="Logopädie 21 Logo"
               class="h-12 w-auto"
             />
