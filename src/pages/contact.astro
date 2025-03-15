@@ -1,5 +1,7 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
+
+const basePath = import.meta.env.BASE_URL || '';
 ---
 
 <MainLayout title="Kontakt - Logopädie 21">
@@ -74,7 +76,7 @@ import MainLayout from '../layouts/MainLayout.astro';
           
           <div class="mt-8">
             <img 
-              src="/images/bollwerk21.jpg" 
+              src={`${basePath}/images/bollwerk21.jpg`} 
               alt="Bollwerk 21" 
               class="w-full h-auto rounded-lg mb-6"
             >

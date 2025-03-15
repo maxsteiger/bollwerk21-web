@@ -19,6 +19,9 @@ const {
   class: className = ""
 } = Astro.props;
 
+// No need to modify the src here, as it should already have the basePath from where it's used
+// The src is passed with basePath already included from teamMembers.ts or other components
+
 // Generate srcset
 const generateSrcSet = (src: string) => {
   // Extract file name and extension

@@ -1,6 +1,8 @@
 ---
 import MainLayout from '../layouts/MainLayout.astro';
 import Hero from '../components/Hero.astro';
+
+const basePath = import.meta.env.BASE_URL || '';
 ---
 
 <MainLayout title="Logopädie 21 - Logopädische Praxis für Kinder in Bern">
@@ -25,7 +27,7 @@ import Hero from '../components/Hero.astro';
           </div>
           <h3 class="text-xl font-bold mb-2">Abklärung</h3>
           <p class="text-gray-600 mb-4">Umfassende Abklärung bei Sprach- und Kommunikationsauffälligkeiten bei Kindern.</p>
-          <a href="/evaluation" class="text-primary font-semibold hover:underline">Mehr erfahren →</a>
+          <a href={`${basePath}/evaluation`} class="text-primary font-semibold hover:underline">Mehr erfahren →</a>
         </div>
         
         <!-- Service Card 2: Therapie -->
@@ -37,7 +39,7 @@ import Hero from '../components/Hero.astro';
           </div>
           <h3 class="text-xl font-bold mb-2">Therapie</h3>
           <p class="text-gray-600 mb-4">Spielerische und individuell angepasste Sprachtherapie für Kinder und Jugendliche.</p>
-          <a href="/therapy" class="text-primary font-semibold hover:underline">Mehr erfahren →</a>
+          <a href={`${basePath}/therapy`} class="text-primary font-semibold hover:underline">Mehr erfahren →</a>
         </div>
         
         <!-- Service Card 3: Team -->
@@ -49,13 +51,13 @@ import Hero from '../components/Hero.astro';
           </div>
           <h3 class="text-xl font-bold mb-2">Unser Team</h3>
           <p class="text-gray-600 mb-4">Fünf erfahrene Logopädinnen mit verschiedenen Spezialgebieten für die optimale Betreuung.</p>
-          <a href="/team" class="text-primary font-semibold hover:underline">Mehr erfahren →</a>
+          <a href={`${basePath}/team`} class="text-primary font-semibold hover:underline">Mehr erfahren →</a>
         </div>
       </div>
       
       <!-- CTA Button -->
       <div class="mt-12 text-center">
-        <a href="/about" class="bg-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-primary/90 transition-colors inline-block">
+        <a href={`${basePath}/about`} class="bg-primary text-white font-bold py-3 px-8 rounded-lg hover:bg-primary/90 transition-colors inline-block">
           Mehr über uns erfahren
         </a>
       </div>

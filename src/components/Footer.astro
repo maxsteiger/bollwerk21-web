@@ -1,5 +1,6 @@
 ---
 const currentYear = new Date().getFullYear();
+const basePath = import.meta.env.BASE_URL || '';
 ---
 
 <footer class="bg-gray-800 text-white pt-12 pb-6">
@@ -7,7 +8,7 @@ const currentYear = new Date().getFullYear();
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
       <!-- Logo and About -->
       <div class="md:col-span-1">
-        <img src="/logopaedie21.svg" alt="Logopädie 21 Logo" class="h-12 mb-4">
+        <img src={`${basePath}/logopaedie21.svg`} alt="Logopädie 21 Logo" class="h-12 mb-4">
         <p class="text-gray-300 text-sm">
           Logopädische Praxis für Kinder am Bollwerk 21 in Bern
         </p>
@@ -43,12 +44,12 @@ const currentYear = new Date().getFullYear();
       <div class="md:col-span-1">
         <h3 class="text-lg font-bold mb-4 border-b border-gray-700 pb-2">Links</h3>
         <ul class="space-y-2">
-          <li><a href="/" class="text-gray-300 hover:text-primary transition-colors">Home</a></li>
-          <li><a href="/about" class="text-gray-300 hover:text-primary transition-colors">Über uns</a></li>
-          <li><a href="/team" class="text-gray-300 hover:text-primary transition-colors">Team</a></li>
-          <li><a href="/evaluation" class="text-gray-300 hover:text-primary transition-colors">Abklärung</a></li>
-          <li><a href="/therapy" class="text-gray-300 hover:text-primary transition-colors">Therapie</a></li>
-          <li><a href="/contact" class="text-gray-300 hover:text-primary transition-colors">Kontakt</a></li>
+          <li><a href={`${basePath}/`} class="text-gray-300 hover:text-primary transition-colors">Home</a></li>
+          <li><a href={`${basePath}/about`} class="text-gray-300 hover:text-primary transition-colors">Über uns</a></li>
+          <li><a href={`${basePath}/team`} class="text-gray-300 hover:text-primary transition-colors">Team</a></li>
+          <li><a href={`${basePath}/evaluation`} class="text-gray-300 hover:text-primary transition-colors">Abklärung</a></li>
+          <li><a href={`${basePath}/therapy`} class="text-gray-300 hover:text-primary transition-colors">Therapie</a></li>
+          <li><a href={`${basePath}/contact`} class="text-gray-300 hover:text-primary transition-colors">Kontakt</a></li>
         </ul>
       </div>
       

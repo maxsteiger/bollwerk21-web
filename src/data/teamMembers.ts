@@ -1,11 +1,14 @@
 import type { TeamMember } from "../types/TeamMember";
 
+// Get base path from environment or use empty string as fallback
+const basePath = import.meta.env.BASE_URL || '';
+
 export const teamMembers: TeamMember[] = [
   {
     id: "franziska",
     name: "Franziska Bodenmann",
-    imagePath: "/images/FranziskaBodenmann.jpg",
-    thumbnailPath: "/images/FranziskaBodenmann-Titel.jpg",
+    imagePath: `${basePath}/images/FranziskaBodenmann.jpg`,
+    thumbnailPath: `${basePath}/images/FranziskaBodenmann-Titel.jpg`,
     titles: ["Dipl. Logopädin"],
     workExperiences: [
       "1994 Logopädischer Dienst der Stadt Basel",
@@ -44,8 +47,8 @@ export const teamMembers: TeamMember[] = [
   {
     id: "jolanda",
     name: "Jolanda Baumann",
-    imagePath: "/images/JolandaBaumann.jpg",
-    thumbnailPath: "/images/JolandaBaumann-Titel.jpg",
+    imagePath: `${basePath}/images/JolandaBaumann.jpg`,
+    thumbnailPath: `${basePath}/images/JolandaBaumann-Titel.jpg`,
     titles: ["Dipl. Logopädin"],
     workExperiences: [
       "Logopädin in der Praxis PalabrArte GmbH in Wallisellen 2019-2020",
@@ -77,8 +80,8 @@ export const teamMembers: TeamMember[] = [
   {
     id: "almut",
     name: "Almut Steiger",
-    imagePath: "/images/AlmutSteiger.jpg",
-    thumbnailPath: "/images/AlmutSteiger-Titel.jpg",
+    imagePath: `${basePath}/images/AlmutSteiger.jpg`,
+    thumbnailPath: `${basePath}/images/AlmutSteiger-Titel.jpg`,
     titles: ["Dipl. Logopädin"],
     workExperiences: [
       "Primarlehrerin 1990 – 1993",
@@ -119,8 +122,8 @@ export const teamMembers: TeamMember[] = [
   {
     id: "livia",
     name: "Livia Thürlemann",
-    imagePath: "/images/LiviaThuerlemann.jpg",
-    thumbnailPath: "/images/LiviaThuerlemann-Titel.jpg",
+    imagePath: `${basePath}/images/LiviaThuerlemann.jpg`,
+    thumbnailPath: `${basePath}/images/LiviaThuerlemann-Titel.jpg`,
     titles: ["Dipl. Logopädin"],
     workExperiences: [
       "Klassenhilfe im Kindergarten der Schweizerschule Rom 1998",
@@ -164,8 +167,8 @@ export const teamMembers: TeamMember[] = [
   {
     id: "barbara",
     name: "Barbara Walker",
-    imagePath: "/images/BarbaraWalker.jpg",
-    thumbnailPath: "/images/BarbaraWalker-Titel.jpg",
+    imagePath: `${basePath}/images/BarbaraWalker.jpg`,
+    thumbnailPath: `${basePath}/images/BarbaraWalker-Titel.jpg`,
     titles: [
       "Dipl. Logopädin",
       "Dipl. Heilpädagogische Früherzieherin",

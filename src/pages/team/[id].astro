@@ -13,6 +13,7 @@ export function getStaticPaths() {
 
 // Get the team member data from props (passed by getStaticPaths)
 const { member } = Astro.props;
+const basePath = import.meta.env.BASE_URL || '';
 ---
 
 <MainLayout title={`${member.name} - Logopädie 21`}>
@@ -21,7 +22,7 @@ const { member } = Astro.props;
       <div class="bg-white rounded-lg shadow-lg p-6 relative">
         <!-- Back button -->
         <a
-          href="/team"
+          href={`${basePath}/team`}
           class="absolute top-4 right-4 px-6 py-2 text-white font-bold uppercase"
           style={`background-color: ${member.color};`}
         >

@@ -2,6 +2,8 @@
 import MainLayout from '../layouts/MainLayout.astro';
 import TeamMember from '../components/TeamMember.astro';
 import { teamMembers } from '../data/teamMembers';
+
+const basePath = import.meta.env.BASE_URL || '';
 ---
 
 <MainLayout title="Team - Logopädie 21">
@@ -12,7 +14,7 @@ import { teamMembers } from '../data/teamMembers';
           <h1 class="text-2xl md:text-3xl font-bold">Unser Team</h1>
           <img 
             class="h-16" 
-            src="logopaedie21.svg" 
+            src={`${basePath}/logopaedie21.svg`} 
             alt="Logopädie 21 Logo"
           >
         </div>
@@ -31,7 +33,7 @@ import { teamMembers } from '../data/teamMembers';
         <div class="flex justify-center">
           <img 
             class="max-h-64" 
-            src="monsters_logo.svg" 
+            src={`${basePath}/monsters_logo.svg`} 
             alt="Monster Logo"
           >
         </div>
