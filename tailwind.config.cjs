@@ -16,9 +16,11 @@ module.exports = {
         accent: "#d72c1e", // brand-red for accents/calls to action
         highlight: "#ff6921", // brand-orange for highlights
         subtle: "#939bd0", // brand-purple for subtle elements
-        gray: "#6c757d", // brand-gray
-        "gray-light": "#f8f9fa", // light background
-        "gray-dark": "#343a40", // dark text
+        gray: {
+          DEFAULT: "#6c757d",
+          light: "#f8f9fa",
+          dark: "#343a40",
+        }
       },
       fontFamily: {
         sans: ["Assistant", "sans-serif"],
