@@ -10,5 +10,7 @@ export interface TeamMember {
   memberships: string[];
   publications: string[];
   contacts: string[];
+  email: string;
+  phone: string;
   color: string;
 }

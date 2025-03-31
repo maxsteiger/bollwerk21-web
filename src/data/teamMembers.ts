@@ -1,7 +1,7 @@
 import type { TeamMember } from "../types/TeamMember";
 
 // Get base path from environment or use empty string as fallback
-const basePath = import.meta.env.BASE_URL || '';
+const basePath = import.meta.env.BASE_URL || "";
 
 export const teamMembers: TeamMember[] = [
   {
@@ -26,7 +26,7 @@ export const teamMembers: TeamMember[] = [
       "Logopädie 21",
       "Bollwerk 21, 3011 Bern",
       "franziska.bodenmann@hin.ch",
-      "T 078 210 19 66",
+      "078 210 19 66",
     ],
     furtherEducations: [
       "Logopädie im Vorschulbereich, Aus- und Weiterbildung nach Barbara Zollinger",
@@ -42,6 +42,8 @@ export const teamMembers: TeamMember[] = [
     ],
     publications: [],
     workRelatedTasks: ["Praxis mit Qualitätsbescheinigung seit 2013"],
+    email: "franziska.bodenmann@hin.ch",
+    phone: "078 210 19 66",
     color: "#d72c1e",
   },
   {
@@ -62,7 +64,7 @@ export const teamMembers: TeamMember[] = [
       "Bollwerk 21",
       "3011 Bern",
       "logopaedie@bluemail.ch",
-      "T 031 371 72 00",
+      "031 371 72 00",
     ],
     furtherEducations: [
       "Musik und Kommunikation",
@@ -75,6 +77,8 @@ export const teamMembers: TeamMember[] = [
     ],
     publications: [],
     workRelatedTasks: ["Praxis mit Qualitätsbescheinigung seit 2019"],
+    email: "logopaedie@bluemail.ch",
+    phone: "031 371 72 00",
     color: "#38b5e6",
   },
   {
@@ -98,7 +102,7 @@ export const teamMembers: TeamMember[] = [
       "Logopädie 21",
       "Bollwerk 21, 3011 Bern",
       "almut.steiger@hin.ch",
-      "T 076 322 03 15",
+      "076 322 03 15",
     ],
     furtherEducations: [
       "Logopädie im Vorschulbereich, Aus- und Weiterbildung nach Barbara Zollinger",
@@ -117,6 +121,8 @@ export const teamMembers: TeamMember[] = [
       "Vorstand Logopädie Bern seit 2018",
       "Praxis mit Qualitätsbescheinigung seit 2013",
     ],
+    email: "almut.steiger@hin.ch",
+    phone: "076 322 03 15",
     color: "#ff6921",
   },
   {
@@ -140,8 +146,8 @@ export const teamMembers: TeamMember[] = [
       "Logopädie 21",
       "Bollwerk 21",
       "3011 Bern",
-      "logopaedie@bluemail.ch",
-      "T 031 371 72 00",
+      "livia.thuerlemann@hin.ch",
+      "076 432 85 07",
     ],
     furtherEducations: [
       "Logopädie im Vorschulbereich, Aus- und Weiterbildung nach Barbara Zollinger",
@@ -162,6 +168,8 @@ export const teamMembers: TeamMember[] = [
       "DLV-Delegierte seit 2020",
       "Praxis mit Qualitätsbescheinigung seit 2013",
     ],
+    email: "livia.thuerlemann@hin.ch",
+    phone: "076 432 85 07",
     color: "#939bd0",
   },
   {
@@ -191,7 +199,7 @@ export const teamMembers: TeamMember[] = [
       "Logopädie 21",
       "Bollwerk 21, 3011 Bern",
       "logopaedie@bluemail.ch",
-      "T 031 371 72 00",
+      "079 638 72 00",
     ],
     furtherEducations: [
       "Jahreskurs Früherfassung und Frühtherapie (sprach-)entwicklungsauffälliger Kinder bei Barbara Zollinger 2001",
@@ -214,6 +222,8 @@ export const teamMembers: TeamMember[] = [
       "Praxis mit Qualitätsbescheinigung seit 2013",
       "Diverse Weiterbildungstätigkeiten als Kursleiterin zu den Themen Erzählfähigkeit, Sprache, Spiel (unter anderem an der Fachhochschule Nordwestschweiz sowie Pädagogische Hochschule Thurgau)",
     ],
+    email: "logopaedie@bluemail.ch",
+    phone: "079 638 72 00",
     color: "#44c39f",
   },
 ];

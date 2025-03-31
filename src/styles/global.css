@@ -1,75 +1,91 @@
-/* Set base font */
+/* Import Tailwind CSS */
 @import "tailwindcss";
 @import "./animations.css";
 
-/* Font faces */
+/* Custom color definitions using Tailwind v4 CSS variables */
+@layer theme {
+  :root {
+    /* Brand colors - using hex values for simplicity */
+    --color-blue: #38b5e6;
+    --color-green: #44c39f;
+    --color-red: #d72c1e;
+    --color-orange: #ff6921;
+    --color-purple: #939bd0;
+
+    /* Gray shades */
+    --color-gray: #6c757d;
+    --color-gray-light: #f8f9fa;
+    --color-gray-dark: #343a40;
+  }
+}
+
+/* Essential custom utility classes for page backgrounds */
+.bg-brand-red {
+  background-color: var(--color-red);
+}
+
+.bg-brand-blue {
+  background-color: var(--color-blue);
+}
+
+.bg-brand-green {
+  background-color: var(--color-green);
+}
+
+.bg-brand-orange {
+  background-color: var(--color-orange);
+}
+
+.bg-brand-purple {
+  background-color: var(--color-purple);
+}
+
+/* Only include the most used font weights to simplify */
 @font-face {
   font-family: "Assistant";
-  src: url("../assets/fonts/Assistant/Bold/Assistant-Bold.woff2") format("woff2"),
-       url("../assets/fonts/Assistant/Bold/Assistant-Bold.woff") format("woff");
+  src: url("/src/assets/fonts/Assistant/Regular/Assistant-Regular.woff2")
+    format("woff2");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Assistant";
+  src: url("/src/assets/fonts/Assistant/Bold/Assistant-Bold.woff2")
+    format("woff2");
   font-weight: bold;
   font-style: normal;
   font-display: swap;
 }
 
 @font-face {
-  font-family: "Assistant";
-  src: url("../assets/fonts/Assistant/Regular/Assistant-Regular.woff2") format("woff2"),
-       url("../assets/fonts/Assistant/Regular/Assistant-Regular.woff") format("woff");
-  font-weight: normal;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Assistant";
-  src: url("../assets/fonts/Assistant/SemiBold/Assistant-SemiBold.woff2") format("woff2"),
-       url("../assets/fonts/Assistant/SemiBold/Assistant-SemiBold.woff") format("woff");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Assistant";
-  src: url("../assets/fonts/Assistant/ExtraBold/Assistant-ExtraBold.woff2") format("woff2"),
-       url("../assets/fonts/Assistant/ExtraBold/Assistant-ExtraBold.woff") format("woff");
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
   font-family: "Minion Pro";
-  src: url("../assets/fonts/MinionPro/Regular/MinionPro-Regular.woff2") format("woff2"),
-       url("../assets/fonts/MinionPro/Regular/MinionPro-Regular.woff") format("woff");
+  src: url("/src/assets/fonts/MinionPro/Regular/MinionPro-Regular.woff2")
+    format("woff2");
   font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
-/* Custom colors and styles */
-:root {
-  --color-primary: #38b5e6;
-  --color-primary-dark: #2a9ac8;
-  --color-secondary: #44c39f;
-  --color-accent: #d72c1e;
-  --color-highlight: #ff6921;
-  --color-subtle: #939bd0;
-}
-
-/* Set font families */
+/* Base element styling */
 body {
-  font-family: 'Assistant', sans-serif;
+  font-family: "Assistant", sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Minion Pro', serif;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Minion Pro", serif;
   font-weight: normal;
 }
 
+/* Accessibility styles */
 :focus-visible {
-  outline: 2px solid var(--color-primary);
+  outline: 2px solid var(--color-blue);
   outline-offset: 2px;
 }
 
@@ -79,7 +95,7 @@ h1, h2, h3, h4, h5, h6 {
   left: -9999px;
   top: 0;
   z-index: 100;
-  background: var(--color-primary);
+  background: var(--color-blue);
   color: white;
   padding: 1rem;
   transform: translateY(-100%);

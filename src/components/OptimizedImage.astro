@@ -9,32 +9,27 @@ interface Props {
   class?: string;
 }
 
-const { 
-  src, 
-  alt, 
-  sizes = "100vw", 
-  width, 
+const {
+  src,
+  alt,
+  sizes = "100vw",
+  width,
   height,
-  objectPosition = "center", 
-  class: className = ""
+  objectPosition = "center",
+  class: className = "",
 } = Astro.props;
-
-// No need to modify the src here, as it should already have the basePath from where it's used
-// The src is passed with basePath already included from teamMembers.ts or other components
 
 // Generate srcset
 const generateSrcSet = (src: string) => {
   // Extract file name and extension
-  const lastDotIndex = src.lastIndexOf('.');
+  const lastDotIndex = src.lastIndexOf(".");
   const baseName = src.substring(0, lastDotIndex);
   const extension = src.substring(lastDotIndex);
-  
+
   // Define widths for responsive images
   const widths = [400, 800, 1200, 1600];
-  
-  return widths
-    .map(w => `${baseName}-${w}w${extension} ${w}w`)
-    .join(', ');
+
+  return widths.map((w) => `${baseName}-${w}w${extension} ${w}w`).join(", ");
 };
 
 // For our demo, we'll simulate this, but in a real implementation
@@ -42,9 +37,9 @@ const generateSrcSet = (src: string) => {
 const srcset = src; // generateSrcSet(src);
 ---
 
-<img 
-  src={src} 
-  alt={alt} 
+<img
+  src={src}
+  alt={alt}
   loading="lazy"
   width={width}
   height={height}

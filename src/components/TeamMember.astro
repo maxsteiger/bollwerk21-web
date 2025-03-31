@@ -1,5 +1,5 @@
 ---
-import OptimizedImage from './OptimizedImage.astro';
+import OptimizedImage from "./OptimizedImage.astro";
 
 interface Props {
   id: string;
@@ -9,10 +9,13 @@ interface Props {
 }
 
 const { id, name, imagePath, color } = Astro.props;
-const basePath = import.meta.env.BASE_URL || '';
+const basePath = import.meta.env.BASE_URL || "";
 ---
 
-<a href={`${basePath}/team/${id}`} class="block transition-transform hover:scale-105">
+<a
+  href={`${basePath}/team/${id}`}
+  class="block transition-transform hover:scale-105"
+>
   <div class="overflow-hidden rounded-lg shadow-md">
     <OptimizedImage
       src={imagePath}
