@@ -2,50 +2,19 @@
 @import "tailwindcss";
 @import "./animations.css";
 
-/* Custom color definitions using Tailwind v4 CSS variables */
-@layer theme {
-  :root {
-    /* Brand colors - using hex values for simplicity */
-    --color-blue: #38b5e6;
-    --color-green: #44c39f;
-    --color-red: #d72c1e;
-    --color-orange: #ff6921;
-    --color-purple: #939bd0;
-
-    /* Gray shades */
-    --color-gray: #6c757d;
-    --color-gray-light: #f8f9fa;
-    --color-gray-dark: #343a40;
-  }
-}
-
-/* Essential custom utility classes for page backgrounds */
-.bg-brand-red {
-  background-color: var(--color-red);
-}
-
-.bg-brand-blue {
-  background-color: var(--color-blue);
-}
-
-.bg-brand-green {
-  background-color: var(--color-green);
-}
-
-.bg-brand-orange {
-  background-color: var(--color-orange);
-}
-
-.bg-brand-purple {
-  background-color: var(--color-purple);
-}
-
-/* Only include the most used font weights to simplify */
 @font-face {
   font-family: "Assistant";
   src: url("/src/assets/fonts/Assistant/Regular/Assistant-Regular.woff2")
     format("woff2");
-  font-weight: normal;
+  font-weight: 100 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Assistant";
+  src: url("/src/assets/fonts/Assistant/SemiBold/Assistant-SemiBold.woff2")
+    format("woff2");
+  font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
@@ -54,7 +23,16 @@
   font-family: "Assistant";
   src: url("/src/assets/fonts/Assistant/Bold/Assistant-Bold.woff2")
     format("woff2");
-  font-weight: bold;
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Assistant";
+  src: url("/src/assets/fonts/Assistant/ExtraBold/Assistant-ExtraBold.woff2")
+    format("woff2");
+  font-weight: 800;
   font-style: normal;
   font-display: swap;
 }
@@ -63,24 +41,120 @@
   font-family: "Minion Pro";
   src: url("/src/assets/fonts/MinionPro/Regular/MinionPro-Regular.woff2")
     format("woff2");
-  font-weight: normal;
+  font-weight: 100 400;
   font-style: normal;
   font-display: swap;
 }
 
-/* Base element styling */
-body {
-  font-family: "Assistant", sans-serif;
+@theme inline {
+  /* Brand colors */
+  --color-brand-blue: #38b5e6;
+  --color-brand-green: #44c39f;
+  --color-brand-red: #d72c1e;
+  --color-brand-orange: #ff6921;
+  --color-brand-purple: #939bd0;
+
+  /* Neutrals */
+  --color-background-primary: var(--color-neutral-50);
+  --color-background-secondary: var(--color-stone-100);
+  --color-background-primary-dark: var(--color-gray-800);
+  --color-background-secondary-dark: var(--color-gray-900);
+
+  --color-text-primary: oklch(0.31 0.0023 67.74);
+  --color-text-secondary: var(--color-zinc-800);
+  --color-text-primary-dark: var(--color-zinc-300);
+  --color-text-secondary-dark: var(--color-blue-100);
+
+  --color-text-accent: var(--color-brand-purple);
+  --color-text-accent-dark: var(--color-brand-green);
+
+  /* Font Faces */
+  --font-sans: "Assistant", "sans-serif";
+  --font-serif: "Minion Pro", "serif";
+  --font-mono: "Assistant", "sans-serif";
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "Minion Pro", serif;
-  font-weight: normal;
+/* Base element styling */
+@layer base {
+  /* light theme values */
+  body {
+    background-color: var(--color-background-primary);
+    color: var(--color-text-primary);
+
+    @variant dark {
+      background-color: var(--color-background-primary-dark);
+      color: var(--color-text-primary-dark);
+    }
+  }
+
+  header {
+    background-color: var(--color-gray-800);
+
+    @variant dark {
+      background-color: var(--color-background-primary-dark);
+      color: var(--color-text-primary-dark);
+    }
+  }
+
+  h1 {
+    color: var(--color-brand-red);
+  }
+  h2 {
+    color: var(--color-brand-orange);
+  }
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-brand-blue);
+    font-family: var(--font-sans);
+  }
+}
+
+@layer components {
+  /* component styling - overridable with utility classes */
+  a {
+    color: var(--color-brand-purple);
+    &:hover {
+      color: var(--color-brand-green);
+    }
+  }
+
+  p {
+    color: var(--color-text-accent)
+  }
+
+  .custom-badge {
+    border-style: var(--tw-border-style);
+    border-width: 2px;
+    font-weight: bold;
+    text-align: center;
+    border-radius: calc(infinity * 1px);
+    padding-block: calc(var(--spacing) * 3);
+    padding-inline: calc(var(--spacing) * 6);
+
+    background-color: var(--color-background-primary);
+    border-color: var(--color-brand-blue);
+    color: var(--color-brand-blue);
+
+    &:hover {
+      background-color: var(--color-brand-blue);
+      color: var(--color-background-primary);
+    }
+
+    @variant dark {
+      background-color: transparent;
+      border-color: var(--color-text-secondary-dark);
+      color: var(--color-text-secondary-dark);
+
+      @variant hover {
+        background-color: var(--color-background-secondary);
+        border-color: var(--color-background-secondary);
+        color: var(--color-text-secondary);
+      }
+    }
+  }
+
 }
 
 /* Accessibility styles */

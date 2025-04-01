@@ -13,12 +13,11 @@ const {
 
 const basePath = import.meta.env.BASE_URL || "";
 const navLinks = [
-  { title: "Home", path: basePath + "/" },
-  { title: "Über uns", path: basePath + "/about" },
-  { title: "Team", path: basePath + "/team" },
-  { title: "Abklärung", path: basePath + "/evaluation" },
-  { title: "Therapie", path: basePath + "/therapy" },
-  { title: "Kontakt", path: basePath + "/contact" },
+  { title: "Über uns", path: basePath + "/about", color: "brand-green" },
+  { title: "Team", path: basePath + "/team", color: "brand-red" },
+  { title: "Abklärung", path: basePath + "/evaluation", color: "brand-orange" },
+  { title: "Therapie", path: basePath + "/therapy", color: "brand-purple" },
+  { title: "Kontakt", path: basePath + "/contact", color: "brand-blue" },
 ];
 ---
 
@@ -32,9 +31,9 @@ const navLinks = [
     <meta name="description" content={description} />
     <title>{title}</title>
   </head>
-  <body class="min-h-screen bg-gray-50">
+  <body class="min-h-screen">
     <a href="#main-content" class="skip-to-content"> Skip to content </a>
-    <header class="bg-white shadow sticky top-0 z-50">
+    <header class="shadow sticky top-0 z-100">
       <div class="container mx-auto px-4 py-3">
         <div class="flex justify-between items-center">
           <a href={basePath + "/"} class="flex items-center">
@@ -92,7 +91,8 @@ const navLinks = [
                   <li>
                     <a
                       href={link.path}
-                      class="hover:text-primary font-semibold transition-colors py-2 px-1 border-b-2 border-transparent hover:border-primary"
+                      style={{ "--hover-color": `var${link.color}` }}
+                      class="font-semibold transition-colors py-2 px-1 border-b-2 border-transparent hover:border-(--hover-color) hover:text-(--hover-color)"
                     >
                       {link.title}
                     </a>
