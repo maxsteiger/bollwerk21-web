@@ -5,6 +5,41 @@ const basePath = import.meta.env.BASE_URL || "";
 
 export const teamMembers: TeamMember[] = [
   {
+    id: "jolanda",
+    name: "Jolanda Baumann",
+    imagePath: `${basePath}/images/JolandaBaumann.jpg`,
+    thumbnailPath: `${basePath}/images/JolandaBaumann-Titel.jpg`,
+    titles: ["Dipl. Logopädin"],
+    workExperiences: [
+      "Logopädin in der Praxis PalabrArte GmbH in Wallisellen 2019-2020",
+      "Logopädin in der Floraprax Biel 2020-2022",
+      "seit 2022 Logopädin in der Praxis Logopädie 21",
+    ],
+    contacts: [
+      "Frau",
+      "Jolanda Baumann",
+      "Logopädie 21",
+      "Bollwerk 21",
+      "3011 Bern",
+      "logopaedie@bluemail.ch",
+      "031 371 72 00",
+    ],
+    furtherEducations: [
+      "Musik und Kommunikation",
+      "Spielorientierte Sprachanbahnung bei Autimsus",
+      "Sensorische Integration in der Kindersprachtherapie",
+      "Regelmässige Supervision (Psychoanalytisch begründete Praxisbegleitung für Logopädinnen)",
+    ],
+    memberships: [
+      "Berufsverbände Logopädie Bern und DLV Deutschschweizer Logopädinnen- und Logopädenverband",
+    ],
+    publications: [],
+    workRelatedTasks: ["Praxis mit Qualitätsbescheinigung seit 2019"],
+    email: "logopaedie@bluemail.ch",
+    phone: "031 371 72 00",
+    color: "#38b5e6",
+  },
+  {
     id: "franziska",
     name: "Franziska Bodenmann",
     imagePath: `${basePath}/images/FranziskaBodenmann.jpg`,
@@ -45,41 +80,6 @@ export const teamMembers: TeamMember[] = [
     email: "franziska.bodenmann@hin.ch",
     phone: "078 210 19 66",
     color: "#d72c1e",
-  },
-  {
-    id: "jolanda",
-    name: "Jolanda Baumann",
-    imagePath: `${basePath}/images/JolandaBaumann.jpg`,
-    thumbnailPath: `${basePath}/images/JolandaBaumann-Titel.jpg`,
-    titles: ["Dipl. Logopädin"],
-    workExperiences: [
-      "Logopädin in der Praxis PalabrArte GmbH in Wallisellen 2019-2020",
-      "Logopädin in der Floraprax Biel 2020-2022",
-      "seit 2022 Logopädin in der Praxis Logopädie 21",
-    ],
-    contacts: [
-      "Frau",
-      "Jolanda Baumann",
-      "Logopädie 21",
-      "Bollwerk 21",
-      "3011 Bern",
-      "logopaedie@bluemail.ch",
-      "031 371 72 00",
-    ],
-    furtherEducations: [
-      "Musik und Kommunikation",
-      "Spielorientierte Sprachanbahnung bei Autimsus",
-      "Sensorische Integration in der Kindersprachtherapie",
-      "Regelmässige Supervision (Psychoanalytisch begründete Praxisbegleitung für Logopädinnen)",
-    ],
-    memberships: [
-      "Berufsverbände Logopädie Bern und DLV Deutschschweizer Logopädinnen- und Logopädenverband",
-    ],
-    publications: [],
-    workRelatedTasks: ["Praxis mit Qualitätsbescheinigung seit 2019"],
-    email: "logopaedie@bluemail.ch",
-    phone: "031 371 72 00",
-    color: "#38b5e6",
   },
   {
     id: "almut",
@@ -225,5 +225,38 @@ export const teamMembers: TeamMember[] = [
     email: "logopaedie@bluemail.ch",
     phone: "079 638 72 00",
     color: "#44c39f",
+  },
+  {
+    id: "praktikant",
+    name: "Marion Muster",
+    imagePath: `${basePath}/images/PersonPlaceholder.jpg`,
+    thumbnailPath: `${basePath}/images/PersonPlaceholder.jpg`,
+    titles: [
+      "Praktikant:in Logopädie",
+    ],
+    workExperiences: [
+      "Arbeitserfahrung"
+    ],
+    contacts: [
+      "Frau",
+      "Marion Muster",
+      "Logopädie 21",
+      "Bollwerk 21, 3011 Bern",
+    ],
+    furtherEducations: [
+      "Aus- und Weiterbildungen",
+    ],
+    memberships: [
+      "Mitgliedschaften",
+    ],
+    publications: [
+      "Publikationen"
+    ],
+    workRelatedTasks: [
+      "Arbeitsbezogene Tätigkeiten"
+    ],
+    email: "mail@mail.ch",
+    phone: "031 321 12 34",
+    color: ""
   },
 ];

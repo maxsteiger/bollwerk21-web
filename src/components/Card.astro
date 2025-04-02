@@ -1,33 +1,38 @@
 ---
+import ServiceIcon from "./ServiceIcon.astro";
+
 interface Props {
   title?: string;
-  color?: string;
-  hasPadding?: boolean;
+  type: "evaluation" | "therapy" | "team" | "contact" | "";
   hasHover?: boolean;
 }
 
-const {
-  title,
-  color = "white",
-  hasPadding = true,
-  hasHover = false,
-} = Astro.props;
+const { title, type, hasHover = false } = Astro.props;
+
+const typeColors = {
+  evaluation: "brand-red",
+  therapy: "brand-orange",
+  team: "brand-green",
+  contact: "brand-purple",
+  "": "brand-blue",
+}
 
 const hoverClass = hasHover
-  ? "transition duration-300 hover:shadow-lg hover:-translate-y-1"
+  ? "transition duration-300 hover:shadow-lg hover:-translate-y-1 hover:scale-110"
   : "";
-const paddingClass = hasPadding ? "p-6" : "";
+
+const basePath = import.meta.env.BASE_URL || "";
 ---
 
-<div class={`bg-${color} rounded-lg shadow-md overflow-hidden ${hoverClass}`}>
-  {
-    title && (
-      <div class="border-b border-gray-200 pb-4 mb-4">
-        <h3 class="text-xl font-semibold">{title}</h3>
-      </div>
-    )
-  }
-  <div class={paddingClass}>
+<div class={`grid grid-cols-2 gap-4 card-background rounded-lg shadow-md overflow-hidden p-6 ${hoverClass}`}>
+  <h3 class="grid self-end text-xl font-extrabold">{title}</h3>
+  <div class="grid justify-end mr-2">
+    <ServiceIcon type={type}, size="md", color={typeColors[type]}/>
+  </div>
+  <div class="col-span-2">
     <slot />
+    <a href={`${basePath}/${type}`} class={`font-semibold hover:underline hover:accent-${typeColors[type]}`}
+      >Mehr erfahren →</a
+    >
   </div>
 </div>

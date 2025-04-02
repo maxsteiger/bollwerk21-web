@@ -13,8 +13,8 @@ const {
 
 const basePath = import.meta.env.BASE_URL || "";
 const navLinks = [
-  { title: "Über uns", path: basePath + "/about", color: "brand-green" },
-  { title: "Team", path: basePath + "/team", color: "brand-red" },
+  { title: "Über uns", path: basePath + "/about", color: "--hover-color-about" },
+  { title: "Team", path: basePath + "/team", color: "--hover-color-team" },
   { title: "Abklärung", path: basePath + "/evaluation", color: "brand-orange" },
   { title: "Therapie", path: basePath + "/therapy", color: "brand-purple" },
   { title: "Kontakt", path: basePath + "/contact", color: "brand-blue" },
@@ -86,19 +86,17 @@ const navLinks = [
           <!-- Desktop Navigation -->
           <nav class="hidden md:block">
             <ul class="flex space-x-8">
-              {
-                navLinks.map((link) => (
+              {navLinks.map((link) => (
                   <li>
                     <a
                       href={link.path}
-                      style={{ "--hover-color": `var${link.color}` }}
-                      class="font-semibold transition-colors py-2 px-1 border-b-2 border-transparent hover:border-(--hover-color) hover:text-(--hover-color)"
+                      style={{ "--hover-color": `${link.color}` }}
+                      class={`font-semibold transition-colors py-2 px-1 border-b-2 border-transparent hover:border-(--hover-color)] hover:${link.color}`}
                     >
                       {link.title}
                     </a>
                   </li>
-                ))
-              }
+                ))}
             </ul>
           </nav>
         </div>
@@ -129,47 +127,47 @@ const navLinks = [
       <slot />
     </main>
 
-    <footer class="bg-gray-800 text-white py-8">
+    <footer class="py-8">
       <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 my-6 justify-items-center">
           <div>
-            <h3 class="text-lg font-bold mb-4">Logopädie 21</h3>
-            <p class="text-gray-300">
+            <h3 class="mb-4">Logopädie 21</h3>
+            <p>
               Logopädische Praxis für Kinder am Bollwerk 21 in Bern
             </p>
           </div>
           <div>
-            <h3 class="text-lg font-bold mb-4">Kontakt</h3>
-            <p class="text-gray-300">
+            <h3 class="mb-4">Kontakt</h3>
+            <p class="">
               Bollwerk 21<br />
               3011 Bern<br />
-              Tel: <a href="tel:+41313717200" class="hover:text-primary"
-                >031 371 72 00</a
-              ><br />
               <a href="mailto:info@logopaedie21.ch" class="hover:text-primary"
                 >info@logopaedie21.ch</a
               >
             </p>
           </div>
           <div>
-            <h3 class="text-lg font-bold mb-4">Öffnungszeiten</h3>
-            <p class="text-gray-300">
+            <h3 class="mb-4">Öffnungszeiten</h3>
+            <p>
               Montag - Freitag<br />
               Nach Vereinbarung
             </p>
           </div>
         </div>
+        <div class="mt-12">
+          <p class="text-xs text-secondary dark:text-secondary-dark">
+            Wir sind Mitglied von Logopädie Bern. Die Qualitätsstandards des
+            Logopädieverbandes des Kantons Bern werden von den Logopädinnen
+            von Logopädie 21 eingehalten und jährlich extern kontrolliert.
+          </p>
+        </div>
         <div
-          class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400"
+          class="mt-8 pt-8 border-t border-gray-700  text-secondary dark:text-secondary-dark"
         >
-          <p>
-            &copy; {new Date().getFullYear()} Logopädie 21. Alle Rechte vorbehalten.<br
-            />
-            <small
-              >Wir sind Mitglied von Logopädie Bern. Die Qualitätsstandards des
-              Logopädieverbandes des Kantons Bern werden von den Logopädinnen
-              von Logopädie 21 eingehalten und jährlich extern kontrolliert.</small
-            >
+          <p class="text-center">
+            <small>
+              &copy; {new Date().getFullYear()} Logopädie 21. Alle Rechte vorbehalten.
+            </small>
           </p>
         </div>
       </div>

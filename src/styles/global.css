@@ -2,49 +2,7 @@
 @import "tailwindcss";
 @import "./animations.css";
 
-@font-face {
-  font-family: "Assistant";
-  src: url("/src/assets/fonts/Assistant/Regular/Assistant-Regular.woff2")
-    format("woff2");
-  font-weight: 100 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "Assistant";
-  src: url("/src/assets/fonts/Assistant/SemiBold/Assistant-SemiBold.woff2")
-    format("woff2");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
 
-@font-face {
-  font-family: "Assistant";
-  src: url("/src/assets/fonts/Assistant/Bold/Assistant-Bold.woff2")
-    format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Assistant";
-  src: url("/src/assets/fonts/Assistant/ExtraBold/Assistant-ExtraBold.woff2")
-    format("woff2");
-  font-weight: 800;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: "Minion Pro";
-  src: url("/src/assets/fonts/MinionPro/Regular/MinionPro-Regular.woff2")
-    format("woff2");
-  font-weight: 100 400;
-  font-style: normal;
-  font-display: swap;
-}
 
 @theme inline {
   /* Brand colors */
@@ -54,53 +12,111 @@
   --color-brand-orange: #ff6921;
   --color-brand-purple: #939bd0;
 
+  --hover-color-about: var(--color-brand-blue);
+  --hover-color-team: var(--color-brand-green);
+  --hover-color-evaluation: var(--color-brand-red);
+  --hover-color-therapy: var(--color-brand-orange);
+  --hover-color-contact: var(--color-brand-purple);
+
   /* Neutrals */
   --color-background-primary: var(--color-neutral-50);
   --color-background-secondary: var(--color-stone-100);
   --color-background-primary-dark: var(--color-gray-800);
   --color-background-secondary-dark: var(--color-gray-900);
 
-  --color-text-primary: oklch(0.31 0.0023 67.74);
-  --color-text-secondary: var(--color-zinc-800);
-  --color-text-primary-dark: var(--color-zinc-300);
-  --color-text-secondary-dark: var(--color-blue-100);
+  --color-primary: oklch(0.31 0.0023 67.74);
+  --color-secondary: var(--color-zinc-400);
+  --color-primary-dark: var(--color-zinc-300);
+  --color-secondary-dark: var(--color-slate-600);
 
-  --color-text-accent: var(--color-brand-purple);
-  --color-text-accent-dark: var(--color-brand-green);
+  --color-accent: var(--color-sky-700);
+  --color-accent-dark: var(--color-brand-purple);
 
   /* Font Faces */
   --font-sans: "Assistant", "sans-serif";
   --font-serif: "Minion Pro", "serif";
-  --font-mono: "Assistant", "sans-serif";
 }
 
 /* Base element styling */
 @layer base {
+  /* Import fonts */
+  @font-face {
+    font-family: "Assistant";
+    src: url("/src/assets/fonts/Assistant/Regular/Assistant-Regular.woff2")
+      format("woff2");
+    font-weight: 100 400;
+    font-style: normal;
+    font-display: swap;
+  }
+  @font-face {
+    font-family: "Assistant";
+    src: url("/src/assets/fonts/Assistant/SemiBold/Assistant-SemiBold.woff2")
+      format("woff2");
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Assistant";
+    src: url("/src/assets/fonts/Assistant/Bold/Assistant-Bold.woff2")
+      format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Assistant";
+    src: url("/src/assets/fonts/Assistant/ExtraBold/Assistant-ExtraBold.woff2")
+      format("woff2");
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+  }
+  
+  @font-face {
+    font-family: "Minion Pro";
+    src: url("/src/assets/fonts/MinionPro/Regular/MinionPro-Regular.woff2")
+      format("woff2");
+    font-weight: 100 400;
+    font-style: normal;
+    font-display: swap;
+  }
+
   /* light theme values */
-  body {
+  html {
     background-color: var(--color-background-primary);
-    color: var(--color-text-primary);
+    color: var(--color-primary);
 
     @variant dark {
       background-color: var(--color-background-primary-dark);
-      color: var(--color-text-primary-dark);
+      color: var(--color-primary-dark);
     }
   }
 
   header {
-    background-color: var(--color-gray-800);
+    background-color: var(--color-background-primary);
 
     @variant dark {
       background-color: var(--color-background-primary-dark);
-      color: var(--color-text-primary-dark);
+      color: var(--color-primary-dark);
     }
   }
 
-  h1 {
-    color: var(--color-brand-red);
+  footer {
+    background-color: var(--color-background-secondary);
+
+    @variant dark {
+      background-color: var(--color-background-primary-dark);
+      color: var(--color-primary-dark);
+    }
   }
+
+  h1,
   h2 {
-    color: var(--color-brand-orange);
+    color: var(--color-brand-red);
+    font-weight: 900;
   }
   h3,
   h4,
@@ -108,6 +124,8 @@
   h6 {
     color: var(--color-brand-blue);
     font-family: var(--font-sans);
+    font-weight: bolder;
+    text-transform: uppercase;
   }
 }
 
@@ -120,8 +138,17 @@
     }
   }
 
-  p {
-    color: var(--color-text-accent)
+  .card-background {
+    background-color: var(--color-background-secondary);
+
+    @variant dark {
+      background-color: var(--color-background-secondary-dark);
+    }
+  }
+
+  .svg-background {
+    border-radius: calc(infinity * 1px);
+    border-width: 2px;
   }
 
   .custom-badge {
@@ -144,13 +171,13 @@
 
     @variant dark {
       background-color: transparent;
-      border-color: var(--color-text-secondary-dark);
-      color: var(--color-text-secondary-dark);
+      border-color: var(--color-secondary-dark);
+      color: var(--color-secondary-dark);
 
       @variant hover {
         background-color: var(--color-background-secondary);
         border-color: var(--color-background-secondary);
-        color: var(--color-text-secondary);
+        color: var(--color-secondary);
       }
     }
   }
